@@ -11,7 +11,7 @@ Provide query API interface for HeadHunter (hh.ru) service
 ```php
 // Init HeadHunter API query interface.
 $hh_settings = array(
-  'service_url' => 'http://api.hh.ru/,
+  'service_url' => 'http://api.hh.ru/',
   'debug_mode' => FALSE,
 );
 ```

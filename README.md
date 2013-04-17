@@ -16,7 +16,7 @@ $hh_settings = array(
 );
 ```
 
-# Query Ex: http://api.hh.ru/1/json/vacancy/search/?region=113&field=13&specialization=471&items=10&page=0 #
+Example for this query: http://api.hh.ru/1/json/vacancy/search/?region=113&field=13&specialization=471&items=10&page=0 
 
 ```php
 $hh = new HeadHunterApi($hh_settings);

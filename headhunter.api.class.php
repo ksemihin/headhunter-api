@@ -39,6 +39,17 @@ class HeadHunterApi2 extends HeadHunterApi {
         return file_get_contents($this->query, false, $context);
     }
     
+    /**
+     * Check necessary params for query.
+     */
+    protected function check() {
+        if (empty($this->method_map)
+                || empty($this->service_url)
+        ) {
+            throw new Exception('Param or method map is empty');
+        }
+    }
+    
     /** @deprecated */
     public function limit($items) {
         return $this;
@@ -66,6 +77,14 @@ class HeadHunterApi2 extends HeadHunterApi {
      */
     public function getVacancyResult() {
         return $this->response->items;
+    }
+    
+    public function getVacancy($vacancyId) {
+        $this->clearAll();
+        $this->method("vacancies")
+                ->method((int) $vacancyId)
+                ->execute();
+        return $this->getAllResult();
     }
  }
 

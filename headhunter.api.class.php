@@ -2,7 +2,7 @@
 
 /**
  * Class HeadHunterApi2
- * Provide simple Query interface for Head Hunter service api version 2.
+ * Provide simple Query interface for Head Hunter service api new version.
  */
 class HeadHunterApi2 extends HeadHunterApi {
     

@@ -18,9 +18,9 @@ class HeadHunterApi2 extends HeadHunterApi {
      * @return \HeadHunterApi2|\HeadHunterApi
      */
     public static function getByVersion($param = array(), $version = 2) {
-        if($version === 2)
-            return new HeadHunterApi2($param);
-        return new HeadHunterApi($param);
+        return $version === 2
+            ? new HeadHunterApi2($param)
+            : new HeadHunterApi($param);
     }
     
     /**
@@ -58,6 +58,14 @@ class HeadHunterApi2 extends HeadHunterApi {
             $number = 500;
         $this->param["per_page"] = $number;
         return $this;
+    }
+    
+    /**
+     * Return all vacancies for current response.
+     * @return array
+     */
+    public function getVacancyResult() {
+        return $this->response->items;
     }
  }
 

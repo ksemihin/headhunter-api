@@ -50,7 +50,20 @@ class HeadHunterApi2 extends HeadHunterApi {
         }
     }
     
-    /** @deprecated */
+    
+    public function get($methods = array(), $params = array()) {
+        $this->clearAll();
+        foreach ((array) $methods as $method) {
+            $this->method ($method);
+        }
+        foreach ((array) $params as $paramName => $value) {
+            $this->condition($paramName, $value);
+        }
+        $this->execute();
+        return $this->getAllResult();
+    }
+
+        /** @deprecated */
     public function limit($items) {
         return $this;
     }
@@ -80,11 +93,18 @@ class HeadHunterApi2 extends HeadHunterApi {
     }
     
     public function getVacancy($vacancyId) {
-        $this->clearAll();
-        $this->method("vacancies")
-                ->method((int) $vacancyId)
-                ->execute();
-        return $this->getAllResult();
+        $methods = array("vacancies", $vacancyId);
+        return $this->get($methods);
+    }
+    
+    public function getAreas() {
+        $methods = array("areas");
+        return $this->get($methods);
+    }
+    
+    public function getArea($areaId) {
+        $methods = array("areas", $areaId);
+        return $this->get($methods);
     }
  }
 

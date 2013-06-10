@@ -63,7 +63,7 @@ class HeadHunterApi2 extends HeadHunterApi {
         return $this->getAllResult();
     }
 
-        /** @deprecated */
+    /** @deprecated */
     public function limit($items) {
         return $this;
     }
@@ -92,16 +92,33 @@ class HeadHunterApi2 extends HeadHunterApi {
         return $this->response->items;
     }
     
+    /**
+     * Get vacancy by id
+     * 
+     * @param integer $vacancyId
+     * @return stdClass
+     */
     public function getVacancy($vacancyId) {
         $methods = array("vacancies", $vacancyId);
         return $this->get($methods);
     }
     
+    /**
+     * Get all areas
+     * 
+     * @return array
+     */
     public function getAreas() {
         $methods = array("areas");
         return $this->get($methods);
     }
     
+    /**
+     * Get area by id
+     * 
+     * @param integer $areaId
+     * @return stdClass
+     */
     public function getArea($areaId) {
         $methods = array("areas", $areaId);
         return $this->get($methods);

@@ -8,7 +8,7 @@ Provide query API interface for HeadHunter (hh.ru) service
 
 Added new api interface support
 
-## New API usege example ##
+## New API usage example ##
 
 ```php
 // Init HeadHunter API query interface.

@@ -8,7 +8,7 @@ Provide query API interface for HeadHunter (hh.ru) service
 
 Added new api interface support
 
-## New API usage example ##
+## New API usage example (ver2)##
 
 ```php
 // Init HeadHunter API query interface.
@@ -33,15 +33,6 @@ $hh->condition("text", "developer")
         ->execute();
 $result = $hh->getVacancyResult();
 
-/*
-$methods = array("vacancies");
-$params = array(
-    "text" => "developer",
-    "area" => 16,
-    "page" => 1,
-    "per_page" => 5);
-$fullResult = $hh->get($methods, $params);
-*/
 
 print_r($result);
 foreach($result as $row) {
@@ -55,7 +46,7 @@ $areas = $hh->getAreas();
 $area = $hh->getArea($areaId);
 ```
 
-## Old API usage Example ##
+## Old API usage Example (ver1) (Deprecated)##
 
 ```php
 // Init HeadHunter API query interface.
